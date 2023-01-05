@@ -1,0 +1,26 @@
+# log files
+*.log
+*.DS_Store
+.npm-debug.log
+.nyc_output
+logs
+yarn-error.log
+
+# bundles
+dist/
+
+# ide settings
+.idea
+.vscode
+.env.local
+*.iml
+
+# dependencies
+node_modules
+
+# coverage reports
+/coverage/**/*
+coverage
+test-reports
+artillery-output.json
+artillery-output.json.html
