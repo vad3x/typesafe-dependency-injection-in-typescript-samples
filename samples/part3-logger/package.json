@@ -1,0 +1,25 @@
+{
+  "name": "part3-logger",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esbuild-register ./src/index.ts",
+    "lint": "npm run lint:types && npm run lint:code",
+    "lint:types": "tsc",
+    "lint:code": "eslint --ext .ts ./",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --minify --outfile=./dist/index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.10.2",
+    "fastify-plugin": "^4.5.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.3"
+  }
+}
