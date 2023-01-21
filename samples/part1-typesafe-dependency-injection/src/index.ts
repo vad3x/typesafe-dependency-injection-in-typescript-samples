@@ -64,21 +64,6 @@ function stubOrderReceiptGenerator() {
   };
 }
 
-// fastify-server.ts
-import { fastify } from "fastify";
-
-export function fastifyServer() {
-  return (deps: Parameters<typeof ordersRoutes>[0]) => {
-    const server = fastify({});
-
-    server.register(ordersRoutes(deps));
-
-    return {
-      fastifyServer: server,
-    };
-  };
-}
-
 // create-app-registry.ts
 import { RegistryComposer } from "./registry-composer";
 
@@ -86,12 +71,11 @@ export function createAppRegistry() {
   return new RegistryComposer()
     .add(stubOrderService())
     .add(stubOrderReceiptGenerator())
-    .add(fastifyServer())
     .compose();
 }
 
 // orders-routes.ts
-import { FastifyPluginCallback } from "fastify";
+import Fastify, { FastifyPluginCallback } from "fastify";
 
 export function ordersRoutes(deps: {
   generateOrderReceipt: GenerateOrderReceipt;
@@ -118,14 +102,17 @@ export function ordersRoutes(deps: {
 const PORT = 3000;
 
 async function main() {
-  const { fastifyServer } = createAppRegistry();
+  const registry = createAppRegistry();
+
+  const server = Fastify({});
+  server.register(ordersRoutes(registry));
 
   try {
-    await fastifyServer.listen({ port: PORT });
+    await server.listen({ port: PORT });
 
     console.log("listening on port", PORT);
   } catch (err) {
-    fastifyServer.log.error(err);
+    server.log.error(err);
     process.exit(1);
   }
 }
