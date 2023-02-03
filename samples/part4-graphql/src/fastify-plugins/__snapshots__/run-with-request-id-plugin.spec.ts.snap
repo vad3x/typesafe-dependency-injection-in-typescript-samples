@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#runWithRequestIdPlugin should assign new request id, given multiple calls and no 'request-id' passed 1`] = `
+[
+  [
+    "1",
+  ],
+  [
+    "2",
+  ],
+  [
+    "3",
+  ],
+]
+`;
+
+exports[`#runWithRequestIdPlugin should assign new request id, given single call and no 'request-id' passed 1`] = `
+[
+  [
+    "1",
+  ],
+]
+`;
+
+exports[`#runWithRequestIdPlugin should populate request id from 'request-id' header 1`] = `
+[
+  [
+    "request-id0",
+  ],
+]
+`;

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/orders/:orderId/receipt should return 200 with body given item by id is found: body 1`] = `"{"total":12,"content":"content0"}"`;
