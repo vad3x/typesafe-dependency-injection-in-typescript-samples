@@ -1,0 +1,36 @@
+{
+  "name": "part5-dataloader",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esbuild-register ./src/index.ts",
+    "prestart": "yarn generate",
+    "generate": "graphql-codegen",
+    "lint": "npm run lint:types && npm run lint:code",
+    "lint:types": "tsc",
+    "lint:code": "eslint --ext .ts ./",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --minify --outfile=./dist/index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.10.2",
+    "fastify-plugin": "^4.5.0",
+    "graphql": "^16.6.0",
+    "graphql-yoga": "^3.3.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.16.4",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-resolvers": "^2.7.12",
+    "@types/uuid": "^8.3.3",
+    "ts-node": "^10.9.1"
+  },
+  "resolutions": {
+    "@graphql-tools/utils": "^9.1.4"
+  }
+}

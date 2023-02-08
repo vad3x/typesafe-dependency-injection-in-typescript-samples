@@ -1,0 +1,6 @@
+schema: ./schema.gql
+generates:
+  ./src/generated/resolvers-types.d.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers

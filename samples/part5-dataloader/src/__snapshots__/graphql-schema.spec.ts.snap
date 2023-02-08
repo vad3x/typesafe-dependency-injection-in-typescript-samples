@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#graphqlSchema #graphqlSchema should query Query.order(id: _): graphql-result 1`] = `
+{
+  "data": {
+    "order": {
+      "id": "order-id0",
+    },
+  },
+}
+`;
