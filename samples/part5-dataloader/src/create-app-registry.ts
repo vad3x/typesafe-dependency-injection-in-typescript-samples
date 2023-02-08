@@ -8,6 +8,7 @@ import { orderStore } from "./registry/stub-order-store";
 import { findOrderById } from "./registry/find-order-by-id-from-store";
 import { graphqlYoga } from "./registry/graphql-yoga";
 import { fastifyServer } from "./registry/fastify-server";
+import { dataLoaderStore } from "./registry/dataloader-store";
 
 import { graphqlSchema } from "./graphql-schema";
 
@@ -16,6 +17,7 @@ export function createAppRegistry() {
     .add(environmentLoggerMetadata("local"))
     .add(requestIdStore())
     .add(requestIdLoggerMetadata())
+    .add(dataLoaderStore())
     .add(consoleLogger())
     .add(orderStore())
     .add(findOrderById())
