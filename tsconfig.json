@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "types": ["@types/jest", "node"],
     "outDir": "./dist",
     "target": "es2019",
@@ -15,7 +16,8 @@
     "noEmit": true,
     "paths": {
       "@part3/*": ["./samples/part3-hexagonal-architecture/src/*"],
-      "@part3-libs/*": ["./samples/part3-hexagonal-architecture/src/libs/*"]
+      "@part3-libs/*": ["./samples/part3-hexagonal-architecture/src/libs/*"],
+      "@part6-common/*": ["./samples/part6-benchmark/src/common/*"]
     }
   },
   "references": []

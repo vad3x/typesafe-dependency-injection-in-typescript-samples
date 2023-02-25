@@ -1,0 +1,31 @@
+{
+  "name": "part6-benchmark",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "perf": "node -r esbuild-register ./src/benchmark.ts",
+    "prestart": "yarn generate",
+    "generate": "graphql-codegen",
+    "lint": "npm run lint:types && npm run lint:code",
+    "lint:types": "tsc",
+    "lint:code": "eslint --ext .ts ./",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --minify --outfile=./dist/index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@nestjs/common": "^9.3.9",
+    "@nestjs/core": "^9.3.9",
+    "@types/benchmark": "^2.1.2",
+    "benchmark": "^2.1.4",
+    "csv": "^6.2.7",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.7.0",
+    "typed-inject": "^3.0.1"
+  }
+}
